@@ -1,0 +1,114 @@
+Sandbox Environment
+
+All the transaction made using this environment are counted as test transaction and has no effect with accounting, URL starts with https://sandbox.sslcommerz.com.
+
+Test Credit Card Account Numbers
+
+VISA:
+
+    Card Number: 4111111111111111
+    Exp: 12/26
+    CVV: 111
+
+Mastercard:
+
+    Card Number: 5111111111111111
+    Exp: 12/26
+    CVV: 111
+
+American Express:
+
+    Card Number: 371111111111111
+    Exp: 12/26
+    CVV: 111
+
+Mobile OTP: 111111 or 123456
+
+
+
+
+
+
+withdrawal code 
+
+// // 2. Calculate balance (clean & reusable logic)
+// $credit = PointTransaction::where('user_id', $user->id)
+//     ->where('bonus_status', 'credit')
+//     ->sum('bonus_amount');
+
+// // Debit calculation
+// $debit = PointTransaction::where('user_id', $user->id)
+//     ->where('bonus_status', 'debit')
+//     ->sum('bonus_amount');
+
+// // Final balance
+// $balance = $credit - $debit;
+
+// if ($balance < $validated['amount']) {
+//     return response()->json([
+//         'status' => false,
+//         'message' => 'Insufficient balance'
+//     ], 422);
+// }
+
+// 3. Transaction safety
+// DB::beginTransaction();
+
+// $amount = (float) $validated['amount'];
+// // Example: 10% charge
+// $charge = round($amount * 0.10, 2);
+// $netAmount = round($amount - $charge, 2);
+
+// $withdrawal = Transaction::create([
+//     'transaction_id'        => 'TRX-' . strtoupper(Str::random(10)),
+//     'user_id'               => $user->id,
+
+//     'amount'                => $amount,
+//     'charge'                => $charge,
+//     'net_amount'            => $netAmount,
+//     'payment_method'        => $validated['payment_method'],
+
+//     'bank_name'             => $validated['bank_name'] ?? null,
+//     'account_holder_name'   => $validated['account_holder_name'] ?? null,
+//     'account_number'        => $validated['account_number'] ?? null,
+//     'routing_number'        => $validated['routing_number'] ?? null,
+//     'branch_name'           => $validated['branch_name'] ?? null,
+//     'swift_code'            => $validated['swift_code'] ?? null,
+
+//     'status'                => 'pending',
+//     'requested_at'          => Carbon::now(),
+// ]);
+
+// // Create Point Transaction
+// $pointTransection = PointTransaction::create([
+//     'user_id'       => $user->id,
+//     'type'          => 'withdraw',
+//     'points'        => 0,
+//     'bonus_amount'  => $amount,
+//     'bonus_status'  => 'debit',
+//     'source'        => 'cash_out',
+//     'reference_id'  => $withdrawal->transaction_id,
+//     'note'          => 'Withdrawal request submitted',
+// ]);
+
+// // Send OTP
+// $otp = rand(100000, 999999);
+
+// OtpVerification::create([
+//     'transaction_id'=> $withdrawal->transaction_id,
+//     'user_id'       => $user->id,
+//     'otp'           => $otp,
+//     'type'          => 'withdraw',
+//     'expired_at'    => Carbon::now()->addMinutes(5),
+//     'ip_address'    => $request->ip(),
+// ]);
+
+// Mail::to($user->email)->send(new FinanceOtpMail($otp));
+
+// DB::commit();
+
+// return response()->json([
+//     'status' => true,
+//     'message' => 'Withdrawal request submitted successfully',
+//     'data' => $withdrawal
+// ], 201);

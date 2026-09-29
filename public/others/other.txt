@@ -1,0 +1,274 @@
+
+// frontend env file // VITE_API_BASE_URL=http://127.0.0.1:8080/api
+
+
+cp .env.example .env
+composer install
+php artisan key:generate
+chmod -R 775 storage bootstrap/cache
+
+
+
+
+git pull origin main or git pull --no-rebase origin main
+
+// git change thakle seta shoho current code change na kore rebase korbe. then push korte hobe
+git pull --rebase origin main
+
+
+# ১.
+git merge --abort
+
+# ২.
+git reset --hard origin/main
+
+# ৩.
+git pull origin main
+
+
+
+
+git pull origin main
+composer install --no-dev --optimize-autoloader
+php artisan optimize:clear
+php artisan optimize
+php artisan view:clear
+php artisan route:clear
+php artisan config:cache
+
+// front end change hole
+php artisan view:clear
+php artisan route:clear
+php artisan config:cache
+
+chmod 644 public/storage/users/*.png
+chmod 755 public/storage/users
+chmod 755 public/storage
+
+
+local change korle seta na rakhte chaile
+git reset --hard
+git pull origin main
+
+info@dynamicbazarmerchantbd.com
+XQv63derR,2tMuPi
+
+core file:     'allowed_origins' => ['https://dynamicbazarmerchantbd.com', 'https://api.dynamicbazarmerchantbd.com'],
+
+
+
+
+
+
+
+------------------ ata backend ar root folder a .htaccess file a add then image show in live server ------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+
+🟢 Emerald Green (#16A34A) বিশ্বাস উন্নতি বাংলাদেশ 🟠 Orange (#F97316) অফার শক্তি উদ্যম ⚫ Dark Charcoal (#1F2937)
+
+
+
+
+
+
+
+
+
+
+
+
+# ======================================================
+# PRODUCT CATALOG
+# ======================================================
+
+php artisan make:model Brand -m
+
+php artisan make:model ProductCategory -m
+
+php artisan make:model ProductSubCategory -m
+
+php artisan make:model Product -m
+
+php artisan make:model ProductImage -m
+
+php artisan make:model ProductVariant -m
+
+php artisan make:model Stock -m
+
+
+# ======================================================
+# COUPONS & PROMOTIONS
+# ======================================================
+
+php artisan make:model Coupon -m
+
+# Pivot Tables (Run AFTER Coupon migration is created)
+
+php artisan make:migration create_coupon_products_table
+
+php artisan make:migration create_coupon_categories_table
+
+php artisan make:migration create_coupon_brands_table
+
+php artisan make:migration create_coupon_vendors_table
+
+
+# ======================================================
+# LOYALTY
+# ======================================================
+
+php artisan make:model PointTransaction -m
+
+
+# ======================================================
+# LOCATION
+# ======================================================
+
+php artisan make:model Division -m
+
+php artisan make:model District -m
+
+php artisan make:model Upazila -m
+
+php artisan make:model PoliceStation -m
+
+
+# ======================================================
+# CUSTOMER
+# ======================================================
+
+php artisan make:model CustomerAddress -m
+
+php artisan make:model Cart -m
+
+
+# ======================================================
+# ORDERS
+# ======================================================
+
+php artisan make:model Order -m
+
+php artisan make:model CouponUsage -m
+
+php artisan make:model Transaction -m
+
+php artisan make:model OrderPayment -m
+
+
+# ======================================================
+# SHIPPING
+# ======================================================
+
+php artisan make:model ShippingZone -m
+
+php artisan make:model DeliveryChargePayment -m
+
+
+# ======================================================
+# SECURITY
+# ======================================================
+
+php artisan make:model OtpVerification -m
+
+
+# ======================================================
+# CMS
+# ======================================================
+
+php artisan make:model Slider -m
+
+php artisan make:model Notice -m
+
+
+
+
+
+
+============================================== Product Details ==============================================
+<h2>Product Overview</h2>
+
+<p>
+    Experience premium quality and outstanding performance with this product.
+    Carefully designed using high-quality materials, it offers durability,
+    comfort, and excellent value for everyday use.
+</p>
+
+<h3>Key Features</h3>
+
+<ul>
+    <li>Premium quality construction</li>
+    <li>Elegant and modern design</li>
+    <li>Lightweight and comfortable to use</li>
+    <li>Durable and long-lasting performance</li>
+    <li>Suitable for daily use</li>
+    <li>Easy to maintain and clean</li>
+</ul>
+
+<h3>Specifications</h3>
+
+<table>
+    <tbody>
+        <tr>
+            <th>Brand</th>
+            <td>ANUA</td>
+        </tr>
+        <tr>
+            <th>Origin</th>
+            <td>South Korea</td>
+        </tr>
+        <tr>
+            <th>Weight</th>
+            <td>30ml</td>
+        </tr>
+        <tr>
+            <th>Skin Type</th>
+            <td>All Skin Types</td>
+        </tr>
+        <tr>
+            <th>Condition</th>
+            <td>100% Authentic & Brand New</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Benefits</h3>
+
+<ul>
+    <li>Provides excellent performance and reliability.</li>
+    <li>Designed for long-term daily use.</li>
+    <li>Helps deliver consistent results.</li>
+    <li>Comfortable and user-friendly design.</li>
+</ul>
+
+<h3>How to Use</h3>
+
+<ol>
+    <li>Use on clean and dry skin or surface.</li>
+    <li>Follow the recommended usage instructions.</li>
+    <li>Use regularly for the best results.</li>
+</ol>
+
+<blockquote>
+    <strong>Note:</strong> Actual product color, packaging, or design may vary
+    slightly depending on the manufacturer.
+</blockquote>
+
+<h3>Package Includes</h3>
+
+<ul>
+    <li>1 × Original Product</li>
+    <li>Manufacturer Packaging</li>
+</ul>
+
+<h3>Why Choose This Product?</h3>
+
+<p>
+    This product combines premium quality, trusted performance, and modern
+    design to provide an excellent user experience. It is an ideal choice for
+    customers looking for authentic products with reliable quality.
+</p>
+============================================== Product Details ==============================================
