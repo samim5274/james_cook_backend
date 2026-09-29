@@ -6,7 +6,7 @@ use App\Http\Controllers\Auth\SocialAuthController;
 use App\Http\Controllers\Auth\SitemapController;
 
 Route::get('/', function () {
-    return redirect('https://pos.mercuviax.com/');
+    return redirect('https://jamescook.mercuviax.com/');
 });
 
 Route::get('/clear', function () {
@@ -17,7 +17,7 @@ Route::get('/clear', function () {
         Artisan::call('optimize:clear');
         Artisan::call('optimize');
 
-        return redirect('https://pos.mercuviax.com/');
+        return redirect('https://jamescook.mercuviax.com/');
     });
 
 
